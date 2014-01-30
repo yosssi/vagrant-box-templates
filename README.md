@@ -1,4 +1,4 @@
-vagrant-boxes
+vagrant-box-templates
 =============
 
-Vagrant boxes
+Vagrant box templates
