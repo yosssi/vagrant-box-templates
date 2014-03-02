@@ -16,21 +16,21 @@ sudo apt-get install -y curl git
 sudo curl -o /usr/local/go1.2.linux-amd64.tar.gz https://go.googlecode.com/files/go1.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf /usr/local/go1.2.linux-amd64.tar.gz
 sudo rm /usr/local/go1.2.linux-amd64.tar.gz
-sudo echo "export GOROOT=/usr/local/go" >> /home/vagrant/.bash_profile
-sudo echo "export GOPATH=\$HOME/go" >> /home/vagrant/.bash_profile
-sudo echo "PATH=\$PATH:\$GOPATH/bin:\$GOROOT:\$GOROOT/bin" >> /home/vagrant/.bash_profile
+echo "export GOROOT=/usr/local/go" >> /home/vagrant/.bash_profile
+echo "export GOPATH=\$HOME/go" >> /home/vagrant/.bash_profile
+echo "PATH=\$PATH:\$GOPATH/bin:\$GOROOT:\$GOROOT/bin" >> /home/vagrant/.bash_profile
 
 # Install Java.
 sudo curl -o /usr/local/lib/jre-7u51-linux-x64.tar.gz https://s3-ap-northeast-1.amazonaws.com/yosssi/java/jre-7u51-linux-x64.gz
 sudo tar xvfz /usr/local/lib/jre-7u51-linux-x64.tar.gz -C /usr/local/lib
 sudo rm /usr/local/lib/jre-7u51-linux-x64.tar.gz
-sudo echo "export JAVA_HOME=/usr/local/lib/jre1.7.0_51" >> /home/vagrant/.bash_profile
+echo "export JAVA_HOME=/usr/local/lib/jre1.7.0_51" >> /home/vagrant/.bash_profile
 
 # Install Elasticsearch
-sudo curl -o /usr/local/lib/elasticsearch-0.90.11.tar.gz https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.11.tar.gz
-sudo tar xvfz /usr/local/lib/elasticsearch-0.90.11.tar.gz -C /usr/local/lib
-sudo rm /usr/local/lib/elasticsearch-0.90.11.tar.gz
-sudo echo "PATH=\$PATH:/usr/local/lib/elasticsearch-0.90.11/bin" >> /home/vagrant/.bash_profile
+curl -o /home/vagrant/elasticsearch-1.0.1.tar.gz https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.tar.gz
+tar xvfz /home/vagrant/elasticsearch-1.0.1.tar.gz -C /home/vagrant
+rm /home/vagrant/elasticsearch-1.0.1.tar.gz
+echo "PATH=\$PATH:/home/vagrant/elasticsearch-0.90.11/bin" >> /home/vagrant/.bash_profile
 
 date > /etc/vagrant_box_build_time
 
