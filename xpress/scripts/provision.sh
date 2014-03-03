@@ -39,6 +39,7 @@ sudo tar xvfz /usr/local/lib/node-v0.10.26-linux-x64.tar.gz -C /usr/local/lib
 sudo rm /usr/local/lib/node-v0.10.26-linux-x64.tar.gz
 sudo echo "export NODE_HOME=/usr/local/lib/node-v0.10.26-linux-x64" >> /home/vagrant/.bash_profile
 sudo echo "PATH=\$PATH:\$NODE_HOME/bin" >> /home/vagrant/.bash_profile
+sudo PATH=$PATH:/usr/local/lib/node-v0.10.26-linux-x64
 
 # Install Bower.
 sudo npm install -g bower
