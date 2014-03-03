@@ -12,26 +12,42 @@ sudo apt-get install -y lxc-docker
 # Install curl and git.
 sudo apt-get install -y curl git
 
-# Install Go 1.2.
-sudo curl -o /usr/local/go1.2.linux-amd64.tar.gz https://go.googlecode.com/files/go1.2.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf /usr/local/go1.2.linux-amd64.tar.gz
-sudo rm /usr/local/go1.2.linux-amd64.tar.gz
-echo "export GOROOT=/usr/local/go" >> /home/vagrant/.bash_profile
-echo "export GOPATH=\$HOME/go" >> /home/vagrant/.bash_profile
-echo "PATH=\$PATH:\$GOPATH/bin:\$GOROOT:\$GOROOT/bin" >> /home/vagrant/.bash_profile
+# Install Go 1.2.1.
+sudo curl -o /usr/local/go1.2.1.linux-amd64.tar.gz https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf /usr/local/go1.2.1.linux-amd64.tar.gz
+sudo rm /usr/local/go1.2.1.linux-amd64.tar.gz
+sudo echo "export GOROOT=/usr/local/go" >> /home/vagrant/.bash_profile
+sudo echo "export GOPATH=\$HOME/go" >> /home/vagrant/.bash_profile
+sudo echo "PATH=\$PATH:\$GOPATH/bin:\$GOROOT:\$GOROOT/bin" >> /home/vagrant/.bash_profile
 
 # Install Java.
 sudo curl -o /usr/local/lib/jre-7u51-linux-x64.tar.gz https://s3-ap-northeast-1.amazonaws.com/yosssi/java/jre-7u51-linux-x64.gz
 sudo tar xvfz /usr/local/lib/jre-7u51-linux-x64.tar.gz -C /usr/local/lib
 sudo rm /usr/local/lib/jre-7u51-linux-x64.tar.gz
-echo "export JAVA_HOME=/usr/local/lib/jre1.7.0_51" >> /home/vagrant/.bash_profile
+sudo echo "export JAVA_HOME=/usr/local/lib/jre1.7.0_51" >> /home/vagrant/.bash_profile
 
-# Install Elasticsearch
+# Install Elasticsearch.
 sudo curl -o /home/vagrant/elasticsearch-1.0.1.tar.gz https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.tar.gz
 sudo tar xvfz /home/vagrant/elasticsearch-1.0.1.tar.gz -C /home/vagrant
 sudo rm /home/vagrant/elasticsearch-1.0.1.tar.gz
 sudo chown vagrant:vagrant /home/vagrant/elasticsearch-1.0.1
-echo "PATH=\$PATH:/home/vagrant/elasticsearch-1.0.1/bin" >> /home/vagrant/.bash_profile
+sudo echo "PATH=\$PATH:/home/vagrant/elasticsearch-1.0.1/bin" >> /home/vagrant/.bash_profile
+
+# Install Node.js.
+sudo curl -o /usr/local/lib/node-v0.10.26-linux-x64.tar.gz http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz
+sudo tar xvfz /usr/local/lib/node-v0.10.26-linux-x64.tar.gz -C /usr/local/lib
+sudo rm /usr/local/lib/node-v0.10.26-linux-x64.tar.gz
+sudo echo "export NODE_HOME=/usr/local/lib/node-v0.10.26-linux-x64" >> /home/vagrant/.bash_profile
+sudo echo "PATH=\$PATH:\$NODE_HOME/bin" >> /home/vagrant/.bash_profile
+
+# Install Bower.
+sudo npm install -g bower
+
+# Install Grunt CLI.
+sudo npm install -g grunt-cli
+
+# Change the owner of /home/vagrant/.bash_profile.
+sudo chown vagrant:vagrant /home/vagrant/.bash_profile
 
 date > /etc/vagrant_box_build_time
 
