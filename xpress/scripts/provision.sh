@@ -39,13 +39,12 @@ sudo tar xvfz /usr/local/lib/node-v0.10.26-linux-x64.tar.gz -C /usr/local/lib
 sudo rm /usr/local/lib/node-v0.10.26-linux-x64.tar.gz
 sudo echo "export NODE_HOME=/usr/local/lib/node-v0.10.26-linux-x64" >> /home/vagrant/.bash_profile
 sudo echo "PATH=\$PATH:\$NODE_HOME/bin" >> /home/vagrant/.bash_profile
-sudo PATH=$PATH:/usr/local/lib/node-v0.10.26-linux-x64
 
 # Install Bower.
-sudo npm install -g bower
+sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g bower
 
 # Install Grunt CLI.
-sudo npm install -g grunt-cli
+sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g grunt-cli
 
 # Change the owner of /home/vagrant/.bash_profile.
 sudo chown vagrant:vagrant /home/vagrant/.bash_profile
