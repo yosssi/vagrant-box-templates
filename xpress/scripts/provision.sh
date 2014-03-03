@@ -27,10 +27,11 @@ sudo rm /usr/local/lib/jre-7u51-linux-x64.tar.gz
 echo "export JAVA_HOME=/usr/local/lib/jre1.7.0_51" >> /home/vagrant/.bash_profile
 
 # Install Elasticsearch
-curl -o /home/vagrant/elasticsearch-1.0.1.tar.gz https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.tar.gz
-tar xvfz /home/vagrant/elasticsearch-1.0.1.tar.gz -C /home/vagrant
-rm /home/vagrant/elasticsearch-1.0.1.tar.gz
-echo "PATH=\$PATH:/home/vagrant/elasticsearch-0.90.11/bin" >> /home/vagrant/.bash_profile
+sudo curl -o /home/vagrant/elasticsearch-1.0.1.tar.gz https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.tar.gz
+sudo tar xvfz /home/vagrant/elasticsearch-1.0.1.tar.gz -C /home/vagrant
+sudo rm /home/vagrant/elasticsearch-1.0.1.tar.gz
+sudo chown vagrant:vagrant /home/vagrant/elasticsearch-1.0.1
+echo "PATH=\$PATH:/home/vagrant/elasticsearch-1.0.1/bin" >> /home/vagrant/.bash_profile
 
 date > /etc/vagrant_box_build_time
 
