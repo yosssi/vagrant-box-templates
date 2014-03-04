@@ -2,6 +2,11 @@ sed -i -e '/Defaults\s\+env_reset/a Defaults\texempt_group=sudo' /etc/sudoers
 sed -i -e 's/%sudo  ALL=(ALL:ALL) ALL/%sudo  ALL=NOPASSWD:ALL/g' /etc/sudoers
 echo "UseDNS no" >> /etc/ssh/sshd_config
 
+# Make lib directory.
+sudo mkdir /home/vagrant/lib
+sudo chown vagrant:vagrant /home/vagrant/lib
+
+#Install Docker.
 sudo apt-get update
 sudo apt-get install -y linux-image-extra-`uname -r`
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
@@ -25,6 +30,7 @@ sudo curl -o /usr/local/lib/jre-7u51-linux-x64.tar.gz https://s3-ap-northeast-1.
 sudo tar xvfz /usr/local/lib/jre-7u51-linux-x64.tar.gz -C /usr/local/lib
 sudo rm /usr/local/lib/jre-7u51-linux-x64.tar.gz
 sudo echo "export JAVA_HOME=/usr/local/lib/jre1.7.0_51" >> /home/vagrant/.bash_profile
+sudo echo "PATH=\$PATH:\$JAVA_HOME/bin" >> /home/vagrant/.bash_profile
 
 # Install Elasticsearch.
 sudo curl -o /home/vagrant/elasticsearch-1.0.1.tar.gz https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.tar.gz
@@ -40,11 +46,14 @@ sudo rm /usr/local/lib/node-v0.10.26-linux-x64.tar.gz
 sudo echo "export NODE_HOME=/usr/local/lib/node-v0.10.26-linux-x64" >> /home/vagrant/.bash_profile
 sudo echo "PATH=\$PATH:\$NODE_HOME/bin" >> /home/vagrant/.bash_profile
 
+# Install YUICompressor.
+sudo curl -o /home/vagrant/lib/yuicompressor-2.4.8.jar https://github.com/yui/yuicompressor/releases/download/v2.4.8/yuicompressor-2.4.8.jar
+
 # Install Bower.
 sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g bower
 
-# Install Grunt CLI.
-sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g grunt-cli
+# Install Stylus.
+sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g stylus
 
 # Change the owner of /home/vagrant/.bash_profile.
 sudo chown vagrant:vagrant /home/vagrant/.bash_profile
