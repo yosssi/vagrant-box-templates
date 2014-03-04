@@ -55,6 +55,9 @@ sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g stylus
 # Install UglifyJS2.
 sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g uglify-js
 
+# Install UglifyCSS.
+sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g uglifycss
+
 # Change the owner of /home/vagrant/.bash_profile.
 sudo chown vagrant:vagrant /home/vagrant/.bash_profile
 
