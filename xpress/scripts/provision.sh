@@ -46,14 +46,14 @@ sudo rm /usr/local/lib/node-v0.10.26-linux-x64.tar.gz
 sudo echo "export NODE_HOME=/usr/local/lib/node-v0.10.26-linux-x64" >> /home/vagrant/.bash_profile
 sudo echo "PATH=\$PATH:\$NODE_HOME/bin" >> /home/vagrant/.bash_profile
 
-# Install YUICompressor.
-sudo curl -o /home/vagrant/lib/yuicompressor-2.4.8.jar https://github.com/yui/yuicompressor/releases/download/v2.4.8/yuicompressor-2.4.8.jar
-
 # Install Bower.
 sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g bower
 
 # Install Stylus.
 sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g stylus
+
+# Install UglifyJS2.
+sudo /usr/local/lib/node-v0.10.26-linux-x64/bin/npm install -g uglify-js
 
 # Change the owner of /home/vagrant/.bash_profile.
 sudo chown vagrant:vagrant /home/vagrant/.bash_profile
